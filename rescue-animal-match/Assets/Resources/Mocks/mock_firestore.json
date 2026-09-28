@@ -1,0 +1,54 @@
+{
+  "weekly_goal": {
+    "targetHuellas": 10000,
+    "currentHuellas": 4250,
+    "shelterId": "shelter_patitas_felices",
+    "shelterName": "Refugio Patitas Felices",
+    "rewardDescription": "1 tonelada de alimento y desparasitación para 40 animales"
+  },
+  "shelters": [
+    {
+      "id": "shelter_patitas_felices",
+      "name": "Refugio Patitas Felices",
+      "location": "Bogotá, Colombia",
+      "contact": "mailto:adoptar@patitasfelices.org",
+      "needs": ["alimento", "mantas", "medicamentos"],
+      "verified": true,
+      "animals": [
+        { "id": "a_max", "name": "Max", "species": "perro", "ageMonths": 26, "photoUrl": "https://cdn.example.org/max.jpg", "description": "Juguetón y bueno con niños.", "sterilized": true, "vaccinated": true },
+        { "id": "a_luna", "name": "Luna", "species": "gato", "ageMonths": 8, "photoUrl": "https://cdn.example.org/luna.jpg", "description": "Curiósa y tranquila.", "sterilized": false, "vaccinated": true }
+      ]
+    },
+    {
+      "id": "shelter_huellitas",
+      "name": "Huellitas de la Sierra",
+      "location": "Medellín, Colombia",
+      "contact": "https://wa.me/573001112233",
+      "needs": ["collares", "placas identificativas"],
+      "verified": true,
+      "animals": [
+        { "id": "a_tobi", "name": "Tobi", "species": "perro", "ageMonths": 48, "photoUrl": "https://cdn.example.org/tobi.jpg", "description": "Adulto, ideal para hogares tranquilos.", "sterilized": true, "vaccinated": true }
+      ]
+    },
+    {
+      "id": "shelter_sin_verificar",
+      "name": "Grupo informal El Zoológico",
+      "location": "Cali, Colombia",
+      "contact": "",
+      "needs": [],
+      "verified": false,
+      "animals": []
+    }
+  ],
+  "donations": [
+    {
+      "id": "don_2026w35",
+      "shelterId": "shelter_huellitas",
+      "shelterName": "Huellitas de la Sierra",
+      "amount": 10000,
+      "date": "2026-09-21T18:00:00Z",
+      "type": "weekly_goal",
+      "verified": true
+    }
+  ]
+}
