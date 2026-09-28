@@ -15,8 +15,14 @@ from pathlib import Path
 ROOT = Path("/workspace/rescue-animal-match")
 SRC_DIRS = [ROOT / "Assets" / "Scripts" / "Board",
             ROOT / "Assets" / "Scripts" / "Progression",
+            ROOT / "Assets" / "Scripts" / "Monetization",
+            ROOT / "Assets" / "Scripts" / "Donations",
+            ROOT / "Assets" / "Scripts" / "Backend",
+            ROOT / "Assets" / "Scripts" / "Core",
             ROOT / "Assets" / "Tests" / "EditMode" / "Board",
-            ROOT / "Assets" / "Tests" / "EditMode" / "Progression"]
+            ROOT / "Assets" / "Tests" / "EditMode" / "Progression",
+            ROOT / "Assets" / "Tests" / "EditMode" / "Monetization",
+            ROOT / "Assets" / "Tests" / "EditMode" / "Donations"]
 
 files = sorted(p for d in SRC_DIRS for p in d.glob("*.cs"))
 sources = {p: p.read_text() for p in files}

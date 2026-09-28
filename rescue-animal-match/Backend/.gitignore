@@ -1,0 +1,6 @@
+node_modules/
+functions/dist/
+*.local
+service-account*.json
+google-services.json
+.env*
