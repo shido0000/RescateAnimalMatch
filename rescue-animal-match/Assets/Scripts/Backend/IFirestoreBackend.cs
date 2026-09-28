@@ -55,6 +55,15 @@ namespace RescueAnimalMatch.Backend
         /// <summary>Loads the player's Huellas balance from users/{uid}.</summary>
         void LoadUserCurrency(Action<BackendResult<int>> onResult);
 
+        /// <summary>
+        /// Generic field write into users/{uid} (own progress, purchases,
+        /// cosmetics). Only the caller's own document is writable per rules.
+        /// </summary>
+        void SaveUserData(string field, string jsonValue, Action<BackendResult<bool>> onResult);
+
+        /// <summary>Generic field read from users/{uid}; null if absent.</summary>
+        void LoadUserData(string field, Action<BackendResult<string>> onResult);
+
         /// <summary>Real-time subscription to config/weekly_goal changes.</summary>
         IDisposable SubscribeWeeklyGoal(Action<WeeklyGoalSnapshot> onUpdate);
     }

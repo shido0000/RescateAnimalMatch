@@ -115,6 +115,25 @@ namespace RescueAnimalMatch.Backend.Mocks
             onResult?.Invoke(BackendResult<int>.Ok(_userHuellas));
         }
 
+        private readonly Dictionary<string, string> _userFields = new Dictionary<string, string>();
+
+        public void SaveUserData(string field, string jsonValue, Action<BackendResult<bool>> onResult)
+        {
+            if (string.IsNullOrEmpty(field))
+            {
+                onResult?.Invoke(BackendResult<bool>.Fail("invalid_field"));
+                return;
+            }
+            _userFields[field] = jsonValue ?? string.Empty;
+            onResult?.Invoke(BackendResult<bool>.Ok(true));
+        }
+
+        public void LoadUserData(string field, Action<BackendResult<string>> onResult)
+        {
+            var value = _userFields.TryGetValue(field ?? string.Empty, out var v) ? v : null;
+            onResult?.Invoke(BackendResult<string>.Ok(value));
+        }
+
         public IDisposable SubscribeWeeklyGoal(Action<WeeklyGoalSnapshot> onUpdate)
         {
             _subscribers.Add(onUpdate);
