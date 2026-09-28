@@ -47,7 +47,7 @@ namespace RescueAnimalMatch.Monetization
         private IBillingProvider ResolveProvider()
         {
 #if USE_IAP && !UNITY_EDITOR
-            if (!useMockProvider) return UnityBillingProvider.CreateAndConnect(this);
+            if (!useMockProvider) return UnityBillingProvider.Create(); // IStoreListener adapter (Task 5 real SDK)
 #endif
             return new MockBillingProvider();
         }
