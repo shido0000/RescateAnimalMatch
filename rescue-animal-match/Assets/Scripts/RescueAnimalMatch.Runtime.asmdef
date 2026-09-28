@@ -1,0 +1,20 @@
+{
+  "name": "RescueAnimalMatch.Runtime",
+  "rootNamespace": "RescueAnimalMatch",
+  "references": [],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [
+    {
+      "name": "com.unity.test-framework",
+      "expression": "",
+      "define": "RAM_TESTS_AVAILABLE"
+    }
+  ],
+  "noEngineReferences": false
+}

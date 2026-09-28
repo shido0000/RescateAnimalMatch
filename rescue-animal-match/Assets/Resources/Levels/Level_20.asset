@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a2b3c4d5e6f708192a3b4c5d6e7f01, type: 3}
+  m_Name: Level_20
+  m_EditorClassIdentifier: 
+  levelNumber: 20
+  levelName: Ciudad Gris
+  difficulty: 1
+  movesLimit: 21
+  objectives:
+    - Type: RescueAnimals
+      TargetAmount: 40
+      PieceFilter: 0
+    - Type: ClearDebris
+      TargetAmount: 22
+      PieceFilter: 0
+  starThreshold1: 3000
+  starThreshold2: 4800
+  starThreshold3: 7200
+  animalRewards:
+  - gallina_rota
+  - perro_max
+  huellasReward: 170

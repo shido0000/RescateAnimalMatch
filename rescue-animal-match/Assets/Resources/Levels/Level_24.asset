@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a2b3c4d5e6f708192a3b4c5d6e7f01, type: 3}
+  m_Name: Level_24
+  m_EditorClassIdentifier: 
+  levelNumber: 24
+  levelName: Desierto Rojo
+  difficulty: 2
+  movesLimit: 19
+  objectives:
+    - Type: RescueAnimals
+      TargetAmount: 59
+      PieceFilter: 0
+    - Type: CollectResources
+      TargetAmount: 37
+      PieceFilter: 2
+    - Type: FeedAnimals
+      TargetAmount: 23
+      PieceFilter: 0
+  starThreshold1: 4000
+  starThreshold2: 6400
+  starThreshold3: 9600
+  animalRewards:
+  - tortuga_tula
+  huellasReward: 218
