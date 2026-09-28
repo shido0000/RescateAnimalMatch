@@ -1,1 +1,5 @@
-(empty)
+# Dependencies
+node_modules/
+
+# Build artifacts (TypeScript compilation output for Firebase Functions)
+Backend/functions/lib/

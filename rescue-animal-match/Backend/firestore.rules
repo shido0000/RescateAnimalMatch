@@ -1,0 +1,63 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn()
+        && exists(/databases/$(database)/documents/users/$(request.auth.uid))
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    // config: lectura pública autenticada (objetivo semanal, banners).
+    // Escritura SOLO vía Cloud Functions (Admin SDK saltea estas reglas).
+    match /config/{document=**} {
+      allow read: if isSignedIn();
+      allow write: if false;
+    }
+
+    // shelters: lectura pública; escritura solo admins.
+    match /shelters/{shelterId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // donations: lectura pública (transparencia); escritura solo Cloud Functions.
+    match /donations/{donationId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // events: metadatos de eventos semanales — lectura pública, escritura admin.
+    match /events/{eventId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // users/{uid}: el propio usuario lee/escribe SU progreso, compras y cosméticos.
+    // El campo role es inmutable desde el cliente (lo fija un admin por consola/Admin SDK).
+    match /users/{userId} {
+      allow read: if isOwner(userId) || isAdmin();
+      allow create: if isOwner(userId)
+        && !('role' in request.resource.data)
+        && request.resource.data.keys().hasOnly(
+             ['huellas', 'progress', 'purchases', 'cosmetics', 'pushToken', 'createdAt']);
+      allow update: if (isOwner(userId) && !('role' in request.resource.data.diff(resource.data).affectedKeys()))
+        || isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // Denegar todo lo demás (defense-in-depth).
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
