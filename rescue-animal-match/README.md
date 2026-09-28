@@ -73,8 +73,8 @@ Coverage target: **> 80 %** on core board logic (`Assets/Scripts/Board`).
 ## Roadmap (task order)
 1. ✅ Project structure + README
 2. ✅ Task 1 – Unity project configuration (ProjectSettings + manifest)
-3. ⬜ Task 2 – Core match-3 engine + tests
-4. ⬜ Task 3 – Levels & progression (30 level assets)
+3. ✅ Task 2 – Core match-3 engine + tests
+4. ✅ Task 3 – Levels & progression (30 level assets in Resources/Levels)
 5. ⬜ Task 4 – Huellas currency & donation system
 6. ⬜ Task 5 – Monetization (AdMob, IAP, cosmetics)
 7. ⬜ Task 6 – Firebase backend (Cloud Functions TS, rules)

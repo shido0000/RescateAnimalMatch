@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a2b3c4d5e6f708192a3b4c5d6e7f01, type: 3}
+  m_Name: Level_13
+  m_EditorClassIdentifier: 
+  levelNumber: 13
+  levelName: Montaña Nevada
+  difficulty: 1
+  movesLimit: 24
+  objectives:
+    - Type: CollectResources
+      TargetAmount: 33
+      PieceFilter: 2
+    - Type: FeedAnimals
+      TargetAmount: 18
+      PieceFilter: 0
+  starThreshold1: 1950
+  starThreshold2: 3120
+  starThreshold3: 4680
+  animalRewards:
+  - loro_pepe
+  - conejo_nube
+  huellasReward: 114

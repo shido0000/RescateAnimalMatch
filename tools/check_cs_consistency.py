@@ -14,7 +14,9 @@ from pathlib import Path
 
 ROOT = Path("/workspace/rescue-animal-match")
 SRC_DIRS = [ROOT / "Assets" / "Scripts" / "Board",
-            ROOT / "Assets" / "Tests" / "EditMode" / "Board"]
+            ROOT / "Assets" / "Scripts" / "Progression",
+            ROOT / "Assets" / "Tests" / "EditMode" / "Board",
+            ROOT / "Assets" / "Tests" / "EditMode" / "Progression"]
 
 files = sorted(p for d in SRC_DIRS for p in d.glob("*.cs"))
 sources = {p: p.read_text() for p in files}
@@ -38,12 +40,17 @@ for pat in patterns:
 # enum members + common Unity/BCL names used bare
 extra = {"Paw","Bone","Heart","Fish","Star","Leaf","None","Power","Bomb","Wild",
          "Horizontal","Vertical","x","y","Add","Contains","Count","Cells","Color",
-         "MaxLineLength","Direction","IsCrossShape","OriginCell"}
+         "MaxLineLength","Direction","IsCrossShape","OriginCell",
+         "starsByLevel","completedLevels","rescuedAnimals","highestLevelUnlocked",
+         "totalStars","TargetAmount","Type","PieceFilter","IsValid","levelNumber",
+         "levelName","movesLimit","objectives","starThreshold1","starThreshold2",
+         "starThreshold3","huellasReward","animalRewards","difficulty","t","amount","Message"}
 declared |= extra
 
 # --- references to check --------------------------------------------------
 RECEIVERS = ("boardManager", "bm", "piece", "p", "a", "b", "g", "group", "h", "v",
-             "go", "other", "kv", "selectedPiece", "tapped", "m")
+             "go", "other", "kv", "selectedPiece", "tapped", "m",
+             "lvl", "states", "st", "dto", "back", "o", "e", "data", "progress")
 member_ref = re.compile(r"\b(?:" + "|".join(RECEIVERS) + r")\.(\w+)")
 
 missing = []
